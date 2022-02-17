@@ -31,12 +31,16 @@ class Board:
     def is_valid(self,row,col):
         return 0<=row<self.rows and 0<=col<self.cols
 
+    def swap(self,row,col):
+        tmp = self.board[row][col]
+        self.board[row][col] = 0
+        self.board[self.empty_idx[0]][self.empty_idx[1]] = tmp
+
 def main():
     b = Board([1, 2, 3, 4, 5, 6, 7, 8, 0])
     print(b)
-    print(b.empty_idx)
-    print(b.is_valid(2,2))
-
+    b.swap(0,0)
+    print(b)
 
 if __name__ == '__main__':
     main()

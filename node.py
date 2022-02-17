@@ -28,11 +28,16 @@ class Node:
 
     def get_neighbors(self):
         row, col = self.board.empty_idx[0], self.board.empty_idx[1]
+        neighbors = []
         for op in [[0,1],[1,0],[-1,0],[0,-1]]:
             i=op[0]
             j=op[1]
             if (self.board.is_valid(row + i, col + j)):
-                print(row+i,col+j)
+                neighbor_board = self.board.__copy__()
+                neighbor_board.swap(row+i,col+j)
+                neighbor = Node(neighbor_board, self.goal_state, self.g+1)
+                neighbors.append(neighbor)
+        return neighbors
 
 
 def main():
@@ -41,8 +46,9 @@ def main():
     print(initial_state)
 
     n = Node(initial_state, goal_state)
-    n.get_neighbors()
-
+    neighbors = n.get_neighbors()
+    for nei in neighbors:
+        print(nei)
 
 if __name__ == '__main__':
     main()
