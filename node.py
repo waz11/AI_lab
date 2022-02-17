@@ -7,6 +7,7 @@ class Node:
         self.goal_state = goal_state
         self.h = self.calc_h()
         self.g = g
+        self.f = self.h + self.g
 
 
     def calc_h(self):
@@ -20,7 +21,7 @@ class Node:
         return res
 
     def f(self):
-        return self.h+self.g
+        return self.f
 
     def __str__(self):
         print(self.board)
@@ -36,6 +37,7 @@ class Node:
                 neighbor_board = self.board.__copy__()
                 neighbor_board.swap(row+i,col+j)
                 neighbor = Node(neighbor_board, self.goal_state, self.g+1)
+                neighbor.board.empty_idx = [row+i,col+j]
                 neighbors.append(neighbor)
         return neighbors
 
