@@ -26,6 +26,8 @@ class Node:
         print(self.board)
         return ''
 
+    def get_neighbors(self):
+
 
 
 

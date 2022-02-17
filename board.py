@@ -1,5 +1,5 @@
 from math import sqrt
-
+import copy
 
 class Board:
 
@@ -25,6 +25,8 @@ class Board:
             print(self.board[r])
         return ''
 
+    def __copy__(self):
+        return copy.deepcopy(self)
 
 
 def main():
