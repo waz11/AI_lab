@@ -36,11 +36,21 @@ class Board:
         self.board[row][col] = 0
         self.board[self.empty_idx[0]][self.empty_idx[1]] = tmp
 
+    def __eq__(self, other):
+        for r in range(self.rows):
+            for c in range(self.cols):
+                if self.board[r][c] != other.board[r][c]:
+                    return False
+        return True
+
 def main():
     b = Board([1, 2, 3, 4, 5, 6, 7, 8, 0])
     print(b)
-    b.swap(0,0)
-    print(b)
+    # b.swap(0,0)
+    # print(b)
+    c = Board([1, 2, 3, 4, 5, 6, 7, 8, 0])
+    print(b==c)
+
 
 if __name__ == '__main__':
     main()

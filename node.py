@@ -39,6 +39,8 @@ class Node:
                 neighbors.append(neighbor)
         return neighbors
 
+        def __eq__(self, other):
+            other.board == self.board
 
 def main():
     initial_state = Board([1,2,3,8,0,4,7,6,5])
