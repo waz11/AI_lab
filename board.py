@@ -48,7 +48,7 @@ def main():
     print(b)
     # b.swap(0,0)
     # print(b)
-    c = Board([1, 2, 3, 4, 5, 6, 7, 8, 0])
+    c = Board([1, 2, 3, 4, 5, 6, 7, 8, 1])
     print(b==c)
 
 

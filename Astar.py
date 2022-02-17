@@ -22,11 +22,10 @@ class Astar:
             else:
                 for neighbor in curr.get_neighbors():
                     if closed.__contains__(neighbor):
-                        print("ron")
+                        continue
                     if not closed.__contains__(neighbor):
                         open.append(neighbor)
                 open.sort(key=lambda x: x.f, reverse=False)
-                # print(open)
         return False
 
 

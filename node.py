@@ -41,18 +41,19 @@ class Node:
                 neighbors.append(neighbor)
         return neighbors
 
-        def __eq__(self, other):
-            other.board == self.board
+    def __eq__(self, other):
+        return other.board == self.board
+
+
 
 def main():
     initial_state = Board([1,2,3,8,0,4,7,6,5])
-    goal_state = Board([2,8,1,0,4,3,7,6,5])
-    print(initial_state)
+    goal_state = Board([2,8,1,0,4,3,7,6,1])
+    # print(initial_state)
 
     n = Node(initial_state, goal_state)
-    neighbors = n.get_neighbors()
-    for nei in neighbors:
-        print(nei)
+    n2 = Node(initial_state, goal_state)
+    print(n==n2)
 
 if __name__ == '__main__':
     main()
