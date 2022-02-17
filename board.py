@@ -3,11 +3,11 @@ from math import sqrt
 
 class Board:
 
-    def __init__(self, values, level = 0):
+    def __init__(self, values):
         self.rows = self.cols = int(sqrt(len(values)))
         self.empty_idx = ()
         self.board = self.__build__(values)
-        self.level = level
+
 
     def __build__(self, values):
         board = []
@@ -24,6 +24,7 @@ class Board:
         for r in range(self.rows):
             print(self.board[r])
         return ''
+
 
 
 def main():
