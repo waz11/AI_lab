@@ -12,12 +12,12 @@ class Astar:
         closed = []
         open.append(self.initial_state)
         while(len(open)>0):
-            # print(len(open))
             curr:Node = open[0]
             closed.append(curr)
             del open[0]
 
             if(curr.h == 0):
+                print(curr)
                 return True
             else:
                 for neighbor in curr.get_neighbors():
@@ -25,7 +25,6 @@ class Astar:
                         print("ron")
                     if not closed.__contains__(neighbor):
                         open.append(neighbor)
-                        print(neighbor)
                 open.sort(key=lambda x: x.f, reverse=False)
                 # print(open)
         return False
