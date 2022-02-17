@@ -28,11 +28,14 @@ class Board:
     def __copy__(self):
         return copy.deepcopy(self)
 
+    def is_valid(self,row,col):
+        return 0<=row<self.rows and 0<=col<self.cols
 
 def main():
     b = Board([1, 2, 3, 4, 5, 6, 7, 8, 0])
     print(b)
     print(b.empty_idx)
+    print(b.is_valid(2,2))
 
 
 if __name__ == '__main__':

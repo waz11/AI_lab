@@ -27,7 +27,7 @@ class Node:
         return ''
 
     def get_neighbors(self):
-
+        row, col = self.board.empty_idx[0], self.board.empty_idx[1]
 
 
 
