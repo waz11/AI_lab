@@ -28,7 +28,11 @@ class Node:
 
     def get_neighbors(self):
         row, col = self.board.empty_idx[0], self.board.empty_idx[1]
-
+        for op in [[0,1],[1,0],[-1,0],[0,-1]]:
+            i=op[0]
+            j=op[1]
+            if (self.board.is_valid(row + i, col + j)):
+                print(row+i,col+j)
 
 
 def main():
@@ -37,7 +41,7 @@ def main():
     print(initial_state)
 
     n = Node(initial_state, goal_state)
-    print(n.f())
+    n.get_neighbors()
 
 
 if __name__ == '__main__':
