@@ -15,21 +15,25 @@ class ResultFile:
         create_new_csv_file(file_name)
 
 
-    def add_result(self):
+    def add_result(self, s):
         self.no+=1
         with open(self.file_name, 'a+', newline='') as write_obj:
             # Create a writer object from csv module
             csv_writer = writer(write_obj)
             # Add contents of list as last row in the csv file
-            csv_writer.writerow([self.no])
+            csv_writer.writerow([self.no, s])
 
 
 def main():
     f = ResultFile()
-    f.add_result()
-    f.add_result()
-    f.add_result()
-    f.add_result()
+    # f.add_result()
+    # f.add_result()
+    # f.add_result()
+    # f.add_result()
+    s = '1 2 3 4 5 6 7 8 0'
+    f.add_result(s)
+    # .replace(']','').replace('[', '').replace(',', '').replace(' ', '').replace("", " ")[1: -1]
+    print(s)
 
 
 if __name__ == '__main__':
