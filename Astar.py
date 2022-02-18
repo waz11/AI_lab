@@ -1,3 +1,5 @@
+from itertools import combinations, chain
+
 from board import Board
 from node import Node
 
@@ -36,7 +38,6 @@ def main():
     n = Node(initial_state, goal_state)
     search = Astar(n, goal_state)
     print(search.search())
-
 
 
 if __name__ == '__main__':
