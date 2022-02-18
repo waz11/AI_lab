@@ -1,10 +1,16 @@
 from board import Board
 
+def build_goal_state(size=9):
+    l = []
+    for i in range(1, size):
+        l.append(i)
+    l.append(0)
+    return Board(l)
 
 class Node:
-    def __init__(self, board, goal_state, g = 0):
+    def __init__(self, board, g = 0):
         self.board = board
-        self.goal_state = goal_state
+        self.goal_state: Board = build_goal_state(len(board))
         self.h = self.calc_h()
         self.g = g
         self.f = self.h + self.g
@@ -33,7 +39,7 @@ class Node:
             if (self.board.is_valid(row + i, col + j)):
                 neighbor_board = self.board.__copy__()
                 neighbor_board.swap(row+i,col+j)
-                neighbor = Node(neighbor_board, self.goal_state, self.g+1)
+                neighbor = Node(neighbor_board, self.g+1)
                 neighbor.board.empty_idx = [row+i,col+j]
                 neighbors.append(neighbor)
         return neighbors
@@ -44,13 +50,10 @@ class Node:
 
 
 def main():
-    initial_state = Board([1,2,3,8,0,4,7,6,5])
-    goal_state = Board([2,8,1,0,4,3,7,6,1])
-    # print(initial_state)
+    board = Board([3, 4, 0, 6, 1, 8, 2, 5, 7])
+    node = Node(board)
 
-    n = Node(initial_state, goal_state)
-    n2 = Node(initial_state, goal_state)
-    print(n==n2)
+    print(node.g)
 
 if __name__ == '__main__':
     main()
