@@ -28,14 +28,13 @@ class Astar:
                         continue
                     elif not closed.__contains__(neighbor):
                         open.append(neighbor)
-                open.sort(key=lambda x: x.f, reverse=False)
+                open.sort(key=lambda x: (x.f,x.h), reverse=False)
         return False
 
 
-
 def main():
-    initial_state = Board([1, 2, 3, 8, 0, 4, 7, 6, 5])
-    goal_state = Board([2, 8, 1, 0, 4, 3, 7, 6, 5])
+    initial_state = Board([6,7,3,1,8,2,5,4,0])
+    goal_state = Board([1,2,3,4,5,6,7,8,0])
     n = Node(initial_state, goal_state)
     search = Astar(n, goal_state)
     print(search.search())
