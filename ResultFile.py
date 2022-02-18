@@ -8,7 +8,7 @@ def create_new_csv_file(file_name):
         writer = csv.writer(file)
         writer.writerow(columns)
 
-class Result_file:
+class ResultFile:
     def __init__(self, file_name='result.csv'):
         self.file_name=file_name
         self.no = 0
@@ -25,7 +25,7 @@ class Result_file:
 
 
 def main():
-    f = Result_file()
+    f = ResultFile()
     f.add_result()
     f.add_result()
     f.add_result()
