@@ -21,7 +21,7 @@ class ResultFile:
             # Create a writer object from csv module
             csv_writer = writer(write_obj)
             # Add contents of list as last row in the csv file
-            a = ''.join([str(elem) for elem in initial_state]).replace(']','').replace('[', '').replace(',', '').replace(' ', '')
+            a = ''.join([str(elem) for elem in initial_state]).replace(']','').replace('[', '').replace(',', '').replace(' ', '').replace('', ' ')
             csv_writer.writerow([self.no, a,time,num_of_nodes])
 
 
