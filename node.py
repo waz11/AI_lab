@@ -20,9 +20,6 @@ class Node:
                     res+=1
         return res
 
-    def f(self):
-        return self.f
-
     def __str__(self):
         print(self.board)
         return ''

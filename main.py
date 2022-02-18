@@ -5,9 +5,9 @@ from node import Node
 
 
 def main():
-    # initial = [1,2,3,8,0,4,7,6,5]
-    initial = [1, 2, 3, 8, 0, 4, 7, 5, 6]
+    initial = [1,2,3,8,0,4,7,5,6]
     goal_state = Board([2, 8, 1, 0, 4, 3, 7, 6, 5])
+    # permu = list(permutations(initial))
 
     initial_state = Board(initial)
     n = Node(initial_state, goal_state)
@@ -15,12 +15,12 @@ def main():
     print(searcher.search())
 
     i=0
-    # for permutation in list(permutations(initial))[:2]:
+    # for p in permu:
     #     i+=1
-    #     print(i)
-    #     permutation = list(permutation)
-    #     print(permutation)
-    #     initial_state = Board(permutation)
+    #     p = list(p)
+    #     print(i, p)
+    #
+    #     initial_state = Board(p)
     #     n = Node(initial_state, goal_state)
     #     searcher = Astar(n, goal_state)
     #     print(searcher.search())

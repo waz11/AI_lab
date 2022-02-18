@@ -21,7 +21,6 @@ class Astar:
             closed.append(curr)
             del open[0]
             if(curr.h == 0):
-                print(curr)
                 return num_of_nodes
             else:
                 for neighbor in curr.get_neighbors():
