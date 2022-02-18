@@ -9,11 +9,11 @@ class Astar:
         self.initial_state_node = Node(initial_state)
 
     def search(self):
+        num_of_nodes = 0
         closed = set()
         open_queue = collections.deque([])
-        open_queue.appendleft(self.initial_state_node)
-        num_of_nodes = 0
 
+        open_queue.appendleft(self.initial_state_node)
         while(len(open_queue)>0):
             num_of_nodes+=1
             open_queue = collections.deque(sorted(list(open_queue), key=lambda node: (node.f, node.h)))
