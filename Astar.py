@@ -12,20 +12,22 @@ class Astar:
     def search(self):
         open = []
         closed = []
+        num_of_nodes = 0
         open.append(self.initial_state)
         while(len(open)>0):
+            num_of_nodes+=1
+
             curr:Node = open[0]
             closed.append(curr)
             del open[0]
-
             if(curr.h == 0):
                 print(curr)
-                return True
+                return num_of_nodes
             else:
                 for neighbor in curr.get_neighbors():
                     if closed.__contains__(neighbor):
                         continue
-                    if not closed.__contains__(neighbor):
+                    elif not closed.__contains__(neighbor):
                         open.append(neighbor)
                 open.sort(key=lambda x: x.f, reverse=False)
         return False
