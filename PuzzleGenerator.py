@@ -1,6 +1,5 @@
 import random
 
-
 def find_empty(puzzle):
     size = len(puzzle)
     for r in range(size):
@@ -39,11 +38,30 @@ def shuffle(puzzle):
         move = random.choice(moves)
         swap(puzzle, (r, c), move)
         r,c = move[0], move[1]
-    print(puzzle)
+    return puzzle
+
+class PuzzleGenerator:
+    def __init__(self):
+        self.boards = set()
+
+    def generate(self):
+        puzzle = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+        shuffle(puzzle)
+        if(hash(str(puzzle)) not in self.boards):
+            self.boards.add(hash(str(puzzle)))
+            return puzzle
+
+
 
 def main():
-    puzzle = [[1,2,3],[4,5,6],[7,8,0]]
-    shuffle(puzzle)
+    # puzzle = [[1,2,3],[4,5,6],[7,8,0]]
+    # shuffle(puzzle)
+
+    pg = PuzzleGenerator()
+    print(pg.generate())
+    print(pg.generate())
+    print(pg.generate())
+    print(pg.generate())
 
 
 if __name__ == '__main__':

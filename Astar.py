@@ -34,6 +34,9 @@ class Astar:
 def main():
     # search = Astar([[4, 2, 1], [6, 0, 3], [8, 5, 7]])
     # search = Astar([[1,2,3], [4,5,6], [7,0,8]])
+
+    # initial_state =
+
     search = Astar([[8, 2, 1], [6, 7, 4], [0, 5, 3]])
 
     s = time.time()

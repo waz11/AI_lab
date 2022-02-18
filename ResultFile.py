@@ -15,13 +15,14 @@ class ResultFile:
         create_new_csv_file(file_name)
 
 
-    def add_result(self, s):
+    def add_result(self, initial_state,time,num_of_nodes):
         self.no+=1
         with open(self.file_name, 'a+', newline='') as write_obj:
             # Create a writer object from csv module
             csv_writer = writer(write_obj)
             # Add contents of list as last row in the csv file
-            csv_writer.writerow([self.no, s])
+            a = ''.join([str(elem) for elem in initial_state]).replace(']','').replace('[', '').replace(',', '').replace(' ', '')
+            csv_writer.writerow([self.no, a,time,num_of_nodes])
 
 
 def main():
@@ -32,7 +33,7 @@ def main():
     # f.add_result()
     s = '1 2 3 4 5 6 7 8 0'
     f.add_result(s)
-    # .replace(']','').replace('[', '').replace(',', '').replace(' ', '').replace("", " ")[1: -1]
+    # ''.join(s).replace(']','').replace('[', '').replace(',', '').replace(' ', '').replace("", " ")[1: -1]
     print(s)
 
 
