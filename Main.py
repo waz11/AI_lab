@@ -1,5 +1,6 @@
 import time
 from Astar import Astar
+from IDA import IDA
 from PuzzleGenerator import PuzzleGenerator
 from ResultFile import ResultFile
 
@@ -10,17 +11,34 @@ def main():
     for i in range(1):
         # initial_state = generator.generate()
         initial_state = [[8, 2, 3], [1, 0, 5],[ 4, 6, 7]]
+        # initial_state = [[1,2,3], [4,5,6], [7,0,8]]
+
         # A* Algorithm:
         start = time.time()
-        num_of_nodes, path_length = Astar(initial_state).search()
+        num_of_nodes1, path_length1 = Astar(initial_state).search()
         end = time.time()
-        f_time = end - start
-        print(num_of_nodes, path_length, f_time)
+        f_time1 = end - start
+        print(num_of_nodes1, path_length1, f_time1)
 
         # IDA* Algorithm:
+        start = time.time()
+        num_of_nodes2, path_length2 = IDA(initial_state).search()
+        end = time.time()
+        f_time2 = end - start
+        print(num_of_nodes2, path_length2, f_time2)
 
-        file.add_result(initial_state,f_time,num_of_nodes,path_length)
+
+        file.add_result(initial_state,f_time1,num_of_nodes1,path_length1, f_time2,num_of_nodes2,path_length2)
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    lst = []
+    lst.append(1)
+    lst.append(2)
+    lst.append(0)
+    print(lst)
+    lst.pop()
+    print(lst)
+    lst.pop()
+    print(lst)
