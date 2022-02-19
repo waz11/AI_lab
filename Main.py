@@ -1,5 +1,6 @@
 import time
 from Search.Algorithms.Astar import Astar
+from Search.Algorithms.DFID import DFID
 from Search.Algorithms.IDA import IDA
 from Puzzle.PuzzleGenerator import PuzzleGenerator
 from Experiments.ResultFile import ResultFile
@@ -23,6 +24,13 @@ def main():
         # IDA* Algorithm:
         start = time.time()
         num_of_nodes2, path_length2 = IDA(initial_state).search()
+        end = time.time()
+        f_time2 = end - start
+        print(num_of_nodes2, path_length2, f_time2)
+
+        # DFID Algorithm:
+        start = time.time()
+        num_of_nodes2, path_length2 = DFID(initial_state).search()
         end = time.time()
         f_time2 = end - start
         print(num_of_nodes2, path_length2, f_time2)

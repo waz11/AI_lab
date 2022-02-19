@@ -16,12 +16,10 @@ class DFID:
         open_queue.appendleft(self.initial_state_node)
         while(len(open_queue)>0):
             num_of_nodes += 1
-            print(num_of_nodes)
             # open_queue = collections.deque(sorted(list(open_queue), key=lambda node: (node.f, node.h)))
             curr = open_queue.popleft()
             closed.add(curr.id)
             if curr.h == 0:
-                print("here")
                 return num_of_nodes-1, curr.g
             elif iter_threshold>0:
                 iter_threshold -= 1
