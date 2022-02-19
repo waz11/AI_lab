@@ -1,7 +1,7 @@
 import csv
 from _csv import writer
 
-columns = ['No','Initial state', 'A* time', 'A* nodes','A* path_length', 'IDA* time', 'IDA* nodes']
+columns = ['No','Initial state', 'A* time', 'A* nodes','A* path_length', 'IDA* time', 'IDA* nodes','IDA* path_length']
 
 def create_new_csv_file(file_name):
     with open(file_name, 'w', newline='') as file:

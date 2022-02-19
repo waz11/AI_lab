@@ -1,2 +1,2 @@
-No,Initial state,A* time,A* nodes,A* path_length,IDA* time,IDA* nodes
-1,[123056478],0.0001785755157470703,3,3,0.010658502578735352,15,3
+No,Initial state,A* time,A* nodes,A* path_length,IDA* time,IDA* nodes,IDA* path_length
+1,[123056478],0.0,3,3,0.013546466827392578,15,3
