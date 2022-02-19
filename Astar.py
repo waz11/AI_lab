@@ -1,12 +1,12 @@
 import collections
 import time
 
-from Node import Node
+from State import State
 
 
 class Astar:
     def __init__(self, initial_state):
-        self.initial_state_node = Node(initial_state)
+        self.initial_state_node = State(initial_state)
 
     def search(self):
         num_of_nodes = 0
@@ -17,7 +17,7 @@ class Astar:
         while(len(open_queue)>0):
             num_of_nodes+=1
             open_queue = collections.deque(sorted(list(open_queue), key=lambda node: (node.f, node.h)))
-            curr:Node = open_queue.popleft()
+            curr:State = open_queue.popleft()
             closed.add(curr.id)
             if curr.h == 0:
                 return num_of_nodes-1, curr.g

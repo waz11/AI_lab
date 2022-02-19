@@ -26,7 +26,7 @@ def swap(new_board,r1, c1,r2, c2):
     new_board[r1][c1] = new_board[r2][c2]
     new_board[r2][c2] = tmp
 
-class Node:
+class State:
     def __init__(self,board,g=0):
         self.board = board
         self.id = hash(str(board))
@@ -64,7 +64,7 @@ class Node:
                 new_board = copy.deepcopy(self.board)
                 swap(new_board,row, col,new_row, new_col)
 
-                neighbor = Node(new_board, self.g+1)
+                neighbor = State(new_board, self.g + 1)
                 neighbor.r0, neighbor.c0 = new_row, new_col
                 neighbors.append(neighbor)
         return neighbors
@@ -88,7 +88,7 @@ class Node:
 if __name__ == '__main__':
     # b = Node([[3, 4, 0],[ 6, 1, 8], [2, 5, 7]])
     # print(hash(str(b.board)))
-    n1 = Node([[1, 2, 3], [4, 5, 6], [7, 8,0]])
+    n1 = State([[1, 2, 3], [4, 5, 6], [7, 8, 0]])
 
     open_queue = collections.deque([])
 
