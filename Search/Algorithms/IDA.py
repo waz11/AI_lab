@@ -1,7 +1,7 @@
 import math
 import time
 
-from Algorithms.State import State
+from Search.State import State
 
 
 class IDA:

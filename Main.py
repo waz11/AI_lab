@@ -1,6 +1,6 @@
 import time
-from Algorithms.Astar import Astar
-from Algorithms.IDA import IDA
+from Search.Algorithms.Astar import Astar
+from Search.Algorithms.IDA import IDA
 from Puzzle.PuzzleGenerator import PuzzleGenerator
 from Experiments.ResultFile import ResultFile
 
