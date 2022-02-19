@@ -1,4 +1,3 @@
-import collections
 import math
 import time
 
@@ -35,8 +34,8 @@ class IDA:
 
 def main():
     # search = IDA([[8, 2, 3], [1, 0, 5],[ 4, 6, 7]])
-    # search = IDA([[4,1,3], [7,2,5], [0,9,6]])
-    search = IDA([[4,1,2], [7,5,3], [0,8,6]])
+    search = IDA([[4,1,3], [7,2,5], [0,9,6]])
+    # search = IDA([[4,1,2], [7,5,3], [0,8,6]])
     s = time.time()
     nodes = search.search()
     e = time.time()
