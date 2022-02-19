@@ -15,7 +15,7 @@ class Astar:
 
         open_queue.appendleft(self.initial_state_node)
         while(len(open_queue)>0):
-            num_of_nodes+=1
+            num_of_nodes += 1
             open_queue = collections.deque(sorted(list(open_queue), key=lambda node: (node.f, node.h)))
             curr:State = open_queue.popleft()
             closed.add(curr.id)
