@@ -35,7 +35,6 @@ def main():
         # f_time2 = end - start
         # print(num_of_nodes2, path_length2, f_time2)
 
-
         file.add_result(initial_state,f_time1,num_of_nodes1,path_length1, f_time2,num_of_nodes2,path_length2)
 
 
