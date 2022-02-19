@@ -37,7 +37,7 @@ class DFID:
 
 
 def main():
-    search = DFID([[1,2,3], [4,5,6], [7,0,8]])
+    search = DFID([[1,2,3], [4,5,6], [0,7,8]])
     s = time.time()
     nodes = search.search()
     e = time.time()
@@ -46,4 +46,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
