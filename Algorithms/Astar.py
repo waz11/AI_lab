@@ -1,7 +1,7 @@
 import collections
 import time
 
-from State import State
+from Algorithms.State import State
 
 
 class Astar:

@@ -1,8 +1,8 @@
 import time
-from Astar import Astar
-from IDA import IDA
-from PuzzleGenerator import PuzzleGenerator
-from ResultFile import ResultFile
+from Algorithms.Astar import Astar
+from Algorithms.IDA import IDA
+from Puzzle.PuzzleGenerator import PuzzleGenerator
+from Experiments.ResultFile import ResultFile
 
 
 def main():
@@ -10,8 +10,8 @@ def main():
     generator = PuzzleGenerator()
     for i in range(1):
         # initial_state = generator.generate()
-        initial_state = [[8, 2, 3], [1, 0, 5],[ 4, 6, 7]]
-        # initial_state = [[1,2,3], [4,5,6], [7,0,8]]
+        # initial_state = [[8, 2, 3], [1, 0, 5],[ 4, 6, 7]]
+        initial_state = [[1,2,3], [0,5,6], [4,7,8]]
 
         # A* Algorithm:
         start = time.time()
@@ -32,13 +32,4 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    lst = []
-    lst.append(1)
-    lst.append(2)
-    lst.append(0)
-    print(lst)
-    lst.pop()
-    print(lst)
-    lst.pop()
-    print(lst)
+    main()
