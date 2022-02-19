@@ -20,7 +20,7 @@ class Astar:
             curr:Node = open_queue.popleft()
             closed.add(curr.id)
             if curr.h == 0:
-                return num_of_nodes-1
+                return num_of_nodes-1, curr.g
             else:
                 for neighbor in curr.get_neighbors():
                     if neighbor.id in closed:

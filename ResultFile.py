@@ -1,7 +1,7 @@
 import csv
 from _csv import writer
 
-columns = ['No','Initial state', 'A* time', 'A* nodes', 'IDA* time', 'IDA* nodes']
+columns = ['No','Initial state', 'A* time', 'A* nodes','A* path_length', 'IDA* time', 'IDA* nodes']
 
 def create_new_csv_file(file_name):
     with open(file_name, 'w', newline='') as file:
@@ -15,14 +15,14 @@ class ResultFile:
         create_new_csv_file(file_name)
 
 
-    def add_result(self, initial_state,time,num_of_nodes):
+    def add_result(self, initial_state,time,num_of_nodes, path_length):
         self.no+=1
         with open(self.file_name, 'a+', newline='') as write_obj:
             # Create a writer object from csv module
             csv_writer = writer(write_obj)
             # Add contents of list as last row in the csv file
-            a = ''.join([str(elem) for elem in initial_state]).replace(']','').replace('[', '').replace(',', '').replace(' ', '').replace('', ' ')
-            csv_writer.writerow([self.no, a,time,num_of_nodes])
+            a = ''.join([str(elem) for elem in initial_state]).replace(']','').replace('[', '').replace(',', '').replace(' ', '')
+            csv_writer.writerow([self.no, '['+a+']',time,num_of_nodes, path_length])
 
 
 def main():
