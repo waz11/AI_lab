@@ -86,10 +86,8 @@ class State:
 
 
 if __name__ == '__main__':
-    # b = Node([[3, 4, 0],[ 6, 1, 8], [2, 5, 7]])
-    # print(hash(str(b.board)))
+    b = State([[3, 4, 0],[ 6, 1, 8], [2, 5, 7]])
     n1 = State([[1, 2, 3], [4, 5, 6], [7, 8, 0]])
 
-    open_queue = collections.deque([])
 
 

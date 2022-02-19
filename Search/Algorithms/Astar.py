@@ -37,8 +37,7 @@ def main():
 
     # initial_state =
 
-    search = Astar([[8, 2, 1], [6, 7, 4], [0, 5, 3]])
-
+    search = Astar([[8, 2, 3], [1, 0, 5], [4, 6, 7]])
     s = time.time()
     nodes = search.search()
     e = time.time()

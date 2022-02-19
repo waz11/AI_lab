@@ -1,5 +1,6 @@
 import csv
 from _csv import writer
+import os
 
 columns = ['No','Initial state', 'A* time', 'A* nodes','A* path_length', 'IDA* time', 'IDA* nodes','IDA* path_length']
 
@@ -12,7 +13,8 @@ class ResultFile:
     def __init__(self, file_name='result.csv'):
         self.file_name=file_name
         self.no = 0
-        create_new_csv_file(file_name)
+        if not os.path.isfile(file_name):
+            create_new_csv_file(file_name)
 
     def add_result(self, initial_state, time1, num_of_nodes1, path_length1, time2, num_of_nodes2, path_length2):
         self.no+=1
@@ -30,10 +32,10 @@ def main():
     # f.add_result()
     # f.add_result()
     # f.add_result()
-    s = '1 2 3 4 5 6 7 8 0'
-    f.add_result(s)
+    # s = '1 2 3 4 5 6 7 8 0'
+    # f.add_result(s)
     # ''.join(s).replace(']','').replace('[', '').replace(',', '').replace(' ', '').replace("", " ")[1: -1]
-    print(s)
+    # print(s)
 
 
 if __name__ == '__main__':
