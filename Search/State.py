@@ -1,16 +1,24 @@
 import collections
 import copy
 
+goal_state = [[1,2,3],[4,5,6],[7,8,0]]
+goal_map = {}
+for r in range(3):
+    for c in range(3):
+        goal_map[goal_state[r][c]] = (r,c)
 
 def calc_h(board):
     res = 0
-    goal_state = [[1,2,3],[4,5,6],[7,8,0]]
+
     size = len(board)
     for r in range(size):
         for c in range(size):
             curr = board[r][c]
-            if curr > 0 and curr != goal_state[r][c]:
-                res += 1
+            # if curr > 0 and curr != goal_state[r][c]:
+            #     res += 1
+            if curr > 0:
+                row,col = goal_map[curr]
+                res += abs(r-row)+abs(c-col)
     return res
 
 
@@ -89,5 +97,6 @@ if __name__ == '__main__':
     b = State([[3, 4, 0],[ 6, 1, 8], [2, 5, 7]])
     n1 = State([[1, 2, 3], [4, 5, 6], [7, 8, 0]])
 
-
+    print(b.h)
+    print(n1.h)
 
