@@ -1,5 +1,36 @@
 import random
 
+goal_state = [[1,2,3],[4,5,6],[7,8,0]]
+goal_map = {}
+for r in range(3):
+    for c in range(3):
+        goal_map[goal_state[r][c]] = (r,c)
+
+
+def h_wrong_idx(board):
+    res = 0
+    size = len(board)
+    for r in range(size):
+        for c in range(size):
+            curr = board[r][c]
+            if curr > 0 and curr != goal_state[r][c]:
+                res += 1
+    return res
+
+
+def h_manhattan_distance(board):
+    res = 0
+    size = len(board)
+    for r in range(size):
+        for c in range(size):
+            curr = board[r][c]
+            # if curr > 0 and curr != goal_state[r][c]:
+            #     res += 1
+            if curr > 0:
+                row,col = goal_map[curr]
+                res += abs(r-row)+abs(c-col)
+    return res
+
 def find_empty(puzzle):
     size = len(puzzle)
     for r in range(size):
@@ -49,7 +80,7 @@ class PuzzleGenerator:
         shuffle(puzzle)
         if(hash(str(puzzle)) not in self.boards):
             self.boards.add(hash(str(puzzle)))
-            return puzzle
+            return puzzle, h_wrong_idx(puzzle), h_manhattan_distance(puzzle)
 
 
 

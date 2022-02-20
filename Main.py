@@ -9,8 +9,8 @@ from Experiments.ResultFile import ResultFile
 def main():
     file = ResultFile()
     generator = PuzzleGenerator()
-    for i in range(20):
-        initial_state = generator.generate()
+    for i in range(50):
+        initial_state, num_of_wrong_idx, manhattan_distance = generator.generate()
         # initial_state = [[8, 2, 3], [1, 0, 5],[ 4, 6, 7]]
         # initial_state = [[1,2,3], [0,5,6], [4,7,8]]
 
@@ -23,7 +23,7 @@ def main():
 
         # IDA* Algorithm:
         start = time.time()
-        num_of_nodes2, path_length2 = IDA(initial_state).search()
+        num_of_nodes2, path_length2, depth = IDA(initial_state).search()
         end = time.time()
         f_time2 = end - start
         print(num_of_nodes2, path_length2, f_time2)
@@ -35,7 +35,7 @@ def main():
         # f_time2 = end - start
         # print(num_of_nodes2, path_length2, f_time2)
 
-        file.add_result(initial_state,f_time1,num_of_nodes1,path_length1, f_time2,num_of_nodes2,path_length2)
+        file.add_result(initial_state,num_of_wrong_idx, manhattan_distance, f_time1,num_of_nodes1,path_length1, f_time2,num_of_nodes2,path_length2)
 
 
 if __name__ == '__main__':

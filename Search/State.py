@@ -1,4 +1,3 @@
-import collections
 import copy
 
 goal_state = [[1,2,3],[4,5,6],[7,8,0]]
@@ -7,7 +6,19 @@ for r in range(3):
     for c in range(3):
         goal_map[goal_state[r][c]] = (r,c)
 
-def calc_h(board):
+
+def h_wrong_idx(board):
+    res = 0
+    size = len(board)
+    for r in range(size):
+        for c in range(size):
+            curr = board[r][c]
+            if curr > 0 and curr != goal_state[r][c]:
+                res += 1
+    return res
+
+
+def h_manhattan_distance(board):
     res = 0
     size = len(board)
     for r in range(size):
@@ -38,7 +49,7 @@ class State:
         self.board = board
         self.id = hash(str(board))
         self.g = g
-        self.h = calc_h(board)
+        self.h = h_manhattan_distance(board)
         self.f = self.g+self.h
         self.r0, self.c0 = find_empty(board)
         self.size = len(board)

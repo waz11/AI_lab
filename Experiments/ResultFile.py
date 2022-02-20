@@ -10,7 +10,7 @@ def create_new_csv_file(file_name):
         writer.writerow(columns)
 
 class ResultFile:
-    def __init__(self, file_name='result.csv'):
+    def __init__(self, file_name='results.csv'):
         self.file_name=file_name
         self.no = 0
         if not os.path.isfile(file_name):
