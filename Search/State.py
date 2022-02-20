@@ -9,7 +9,6 @@ for r in range(3):
 
 def calc_h(board):
     res = 0
-
     size = len(board)
     for r in range(size):
         for c in range(size):
