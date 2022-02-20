@@ -9,7 +9,7 @@ from Experiments.ResultFile import ResultFile
 def main():
     file = ResultFile()
     generator = PuzzleGenerator()
-    for i in range(1):
+    for i in range(20):
         initial_state = generator.generate()
         # initial_state = [[8, 2, 3], [1, 0, 5],[ 4, 6, 7]]
         # initial_state = [[1,2,3], [0,5,6], [4,7,8]]
