@@ -17,7 +17,7 @@ class IDA:
         stack = []
         stack.append(self.initial_state_node)
         min_f = math.inf
-        print(threshold)
+        # print(threshold)
         while(len(stack) > 0):
             num_of_nodes += 1
             curr = stack.pop()
